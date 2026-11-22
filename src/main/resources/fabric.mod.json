@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "beyondfivehorizons",
+  "version": "${version}",
+  "name": "Beyond the Five Horizons",
+  "description": "An adventure mod adding five unique dimensions: Elysium, Chronos, Astralia, Underroot, and Ashen Crown.",
+  "authors": [
+    "Beyond the Five Horizons Team"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/beyondfivehorizons/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.beyondfivehorizons.BeyondFiveHorizons"
+    ],
+    "client": [
+      "com.beyondfivehorizons.client.BeyondFiveHorizonsClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}

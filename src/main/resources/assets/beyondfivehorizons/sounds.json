@@ -1,0 +1,14 @@
+{
+  "obelisk_activate": {
+    "subtitle": "subtitles.beyondfivehorizons.obelisk_activate",
+    "sounds": [
+      "minecraft:block/beacon/activate"
+    ]
+  },
+  "horizon_travel": {
+    "subtitle": "subtitles.beyondfivehorizons.horizon_travel",
+    "sounds": [
+      "minecraft:portal/travel"
+    ]
+  }
+}

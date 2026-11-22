@@ -1,0 +1,11 @@
+{
+  "type": "beyondfivehorizons:underroot",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "minecraft:caves",
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "beyondfivehorizons:underroot_depths"
+    }
+  }
+}

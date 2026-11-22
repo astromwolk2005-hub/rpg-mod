@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "beyondfivehorizons:obelisk_stone",
+    "beyondfivehorizons:obelisk_core",
+    "beyondfivehorizons:elysium_moss_stone",
+    "beyondfivehorizons:chronos_brass_block",
+    "beyondfivehorizons:astralia_crystal_block",
+    "beyondfivehorizons:ashen_basalt_block"
+  ]
+}

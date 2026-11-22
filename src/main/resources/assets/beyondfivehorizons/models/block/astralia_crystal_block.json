@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "beyondfivehorizons:block/astralia_crystal_block"
+  }
+}
