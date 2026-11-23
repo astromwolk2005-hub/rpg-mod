@@ -10,9 +10,6 @@ import net.minecraft.world.dimension.DimensionType;
 
 import java.util.Optional;
 
-/**
- * Central descriptor for the five dimensions of Beyond the Five Horizons.
- */
 public enum HorizonDimension {
     ELYSIUM("elysium", 1, false, false),
     CHRONOS("chronos", 2, false, false),
@@ -39,33 +36,13 @@ public enum HorizonDimension {
         this.stemKey = RegistryKey.of(RegistryKeys.DIMENSION, identifier);
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public int getRecommendedOrder() {
-        return recommendedOrder;
-    }
-
-    public boolean hasCeiling() {
-        return hasCeiling;
-    }
-
-    public boolean isFloatingIslands() {
-        return floatingIslands;
-    }
-
-    public RegistryKey<World> getWorldKey() {
-        return worldKey;
-    }
-
-    public RegistryKey<DimensionType> getTypeKey() {
-        return typeKey;
-    }
-
-    public RegistryKey<DimensionOptions> getStemKey() {
-        return stemKey;
-    }
+    public String getId() { return id; }
+    public int getRecommendedOrder() { return recommendedOrder; }
+    public boolean hasCeiling() { return hasCeiling; }
+    public boolean isFloatingIslands() { return floatingIslands; }
+    public RegistryKey<World> getWorldKey() { return worldKey; }
+    public RegistryKey<DimensionType> getTypeKey() { return typeKey; }
+    public RegistryKey<DimensionOptions> getStemKey() { return stemKey; }
 
     public String getTranslationKey() {
         return "dimension." + BeyondFiveHorizons.MOD_ID + "." + id;

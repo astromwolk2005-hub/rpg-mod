@@ -1,0 +1,7 @@
+{
+  "type": "beyondfivehorizons:elysium_structure",
+  "variant": "root_arch",
+  "biomes": "#beyondfivehorizons:elysium_all",
+  "step": "surface_structures",
+  "spawn_overrides": {}
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "V V",
+    "VLV",
+    "VVV"
+  ],
+  "key": {
+    "V": {
+      "item": "beyondfivehorizons:verdant_crystal"
+    },
+    "L": {
+      "item": "beyondfivehorizons:living_essence"
+    }
+  },
+  "result": {
+    "id": "beyondfivehorizons:elysium_chestplate",
+    "count": 1
+  }
+}

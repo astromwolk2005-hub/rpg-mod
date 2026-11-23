@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "beyondfivehorizons:block/blighted_log_top",
+    "side": "beyondfivehorizons:block/blighted_log"
+  }
+}

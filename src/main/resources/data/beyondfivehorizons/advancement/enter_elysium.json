@@ -1,0 +1,25 @@
+{
+  "parent": "beyondfivehorizons:root",
+  "display": {
+    "icon": {
+      "id": "beyondfivehorizons:living_essence"
+    },
+    "title": {
+      "translate": "advancement.beyondfivehorizons.enter_elysium.title"
+    },
+    "description": {
+      "translate": "advancement.beyondfivehorizons.enter_elysium.desc"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "entered_elysium": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "to": "beyondfivehorizons:elysium"
+      }
+    }
+  }
+}

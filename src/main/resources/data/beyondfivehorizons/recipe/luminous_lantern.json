@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PPP",
+    "PLP",
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "item": "beyondfivehorizons:luminous_pollen"
+    },
+    "L": {
+      "item": "beyondfivehorizons:living_essence"
+    }
+  },
+  "result": {
+    "id": "beyondfivehorizons:luminous_lantern",
+    "count": 2
+  }
+}

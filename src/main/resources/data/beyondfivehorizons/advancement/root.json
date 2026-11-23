@@ -1,0 +1,29 @@
+{
+  "display": {
+    "icon": {
+      "id": "beyondfivehorizons:horizon_compass"
+    },
+    "title": {
+      "translate": "advancement.beyondfivehorizons.root.title"
+    },
+    "description": {
+      "translate": "advancement.beyondfivehorizons.root.desc"
+    },
+    "background": "beyondfivehorizons:textures/block/elysium_moss_bricks.png",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "has_compass": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "beyondfivehorizons:horizon_compass"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -15,19 +15,20 @@ import net.minecraft.world.World;
 import java.util.Collections;
 import java.util.EnumSet;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
 /**
- * Server-authoritative persistent storage for player and world progression:
- * unlocked dimensions, discovered horizons, and defeated guardians.
+ * Server-authoritative persistent progression storage for Beyond the Five Horizons.
  */
 public class HorizonProgressionState extends PersistentState {
     private static final String STATE_KEY = BeyondFiveHorizons.MOD_ID + "_progression";
     private static final String TAG_PLAYERS = "Players";
     private static final String TAG_DISCOVERED = "Discovered";
     private static final String TAG_DEFEATED_BOSSES = "DefeatedBosses";
+    private static final String TAG_PURIFIED_CORES = "PurifiedCores";
 
     private static final Type<HorizonProgressionState> TYPE = new Type<>(
             HorizonProgressionState::new,
@@ -37,6 +38,7 @@ public class HorizonProgressionState extends PersistentState {
 
     private final Map<UUID, EnumSet<HorizonDimension>> discoveredByPlayer = new HashMap<>();
     private final Map<UUID, EnumSet<HorizonDimension>> defeatedBossesByPlayer = new HashMap<>();
+    private final Map<UUID, Integer> purifiedCoresByPlayer = new HashMap<>();
 
     public static HorizonProgressionState get(MinecraftServer server) {
         ServerWorld overworld = server.getWorld(World.OVERWORLD);
@@ -76,6 +78,15 @@ public class HorizonProgressionState extends PersistentState {
         return set == null ? Collections.emptySet() : Collections.unmodifiableSet(set);
     }
 
+    public void incrementPurifiedCores(UUID playerId) {
+        purifiedCoresByPlayer.merge(playerId, 1, Integer::sum);
+        markDirty();
+    }
+
+    public int getPurifiedCores(UUID playerId) {
+        return purifiedCoresByPlayer.getOrDefault(playerId, 0);
+    }
+
     public boolean hasUnlockedHeartOfReality(UUID playerId) {
         return getDefeatedBosses(playerId).size() == HorizonDimension.values().length;
     }
@@ -84,9 +95,9 @@ public class HorizonProgressionState extends PersistentState {
     public NbtCompound writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
         NbtCompound playersNbt = new NbtCompound();
 
-        // Collect all UUIDs present in either map
-        Set<UUID> allPlayers = new java.util.HashSet<>(discoveredByPlayer.keySet());
+        Set<UUID> allPlayers = new HashSet<>(discoveredByPlayer.keySet());
         allPlayers.addAll(defeatedBossesByPlayer.keySet());
+        allPlayers.addAll(purifiedCoresByPlayer.keySet());
 
         for (UUID uuid : allPlayers) {
             NbtCompound playerEntry = new NbtCompound();
@@ -102,6 +113,7 @@ public class HorizonProgressionState extends PersistentState {
                 bossList.add(NbtString.of(dim.getId()));
             }
             playerEntry.put(TAG_DEFEATED_BOSSES, bossList);
+            playerEntry.putInt(TAG_PURIFIED_CORES, getPurifiedCores(uuid));
 
             playersNbt.put(uuid.toString(), playerEntry);
         }
@@ -143,6 +155,10 @@ public class HorizonProgressionState extends PersistentState {
             }
             if (!bossSet.isEmpty()) {
                 state.defeatedBossesByPlayer.put(uuid, bossSet);
+            }
+
+            if (playerEntry.contains(TAG_PURIFIED_CORES)) {
+                state.purifiedCoresByPlayer.put(uuid, playerEntry.getInt(TAG_PURIFIED_CORES));
             }
         }
 

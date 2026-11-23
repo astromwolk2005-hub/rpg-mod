@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "beyondfivehorizons:elysium_log",
+    "beyondfivehorizons:stripped_elysium_log",
+    "beyondfivehorizons:elysium_hollow_log",
+    "beyondfivehorizons:blighted_log"
+  ]
+}

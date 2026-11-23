@@ -1,0 +1,29 @@
+{
+  "parent": "beyondfivehorizons:enter_elysium",
+  "display": {
+    "icon": {
+      "id": "beyondfivehorizons:living_blade"
+    },
+    "title": {
+      "translate": "advancement.beyondfivehorizons.craft_elysium_gear.title"
+    },
+    "description": {
+      "translate": "advancement.beyondfivehorizons.craft_elysium_gear.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "has_blade": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "beyondfivehorizons:living_blade"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "structures": [
+    {
+      "structure": "beyondfivehorizons:overgrown_crypt",
+      "weight": 2
+    },
+    {
+      "structure": "beyondfivehorizons:blighted_hollow",
+      "weight": 3
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 24,
+    "separation": 10,
+    "salt": 1412002
+  }
+}

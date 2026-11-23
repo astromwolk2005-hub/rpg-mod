@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "beyondfivehorizons:block/elysium_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "beyondfivehorizons:block/elysium_log"
+    },
+    "axis=z": {
+      "model": "beyondfivehorizons:block/elysium_log_horizontal",
+      "x": 90
+    }
+  }
+}

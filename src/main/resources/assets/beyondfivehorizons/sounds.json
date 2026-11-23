@@ -10,5 +10,17 @@
     "sounds": [
       "minecraft:portal/travel"
     ]
+  },
+  "elysium_portal_ambient": {
+    "subtitle": "subtitles.beyondfivehorizons.elysium_portal_ambient",
+    "sounds": [
+      "minecraft:block/amethyst/chime"
+    ]
+  },
+  "heart_boss_roar": {
+    "subtitle": "subtitles.beyondfivehorizons.heart_boss_roar",
+    "sounds": [
+      "minecraft:mob/enderdragon/growl1"
+    ]
   }
 }

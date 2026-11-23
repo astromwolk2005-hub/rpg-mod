@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "beyondfivehorizons:block/elysium_planks",
+    "top": "beyondfivehorizons:block/elysium_planks",
+    "side": "beyondfivehorizons:block/elysium_planks"
+  }
+}

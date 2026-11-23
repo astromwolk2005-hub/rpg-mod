@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MM",
+    "MM"
+  ],
+  "key": {
+    "M": {
+      "item": "beyondfivehorizons:elysium_moss_stone"
+    }
+  },
+  "result": {
+    "id": "beyondfivehorizons:elysium_moss_bricks",
+    "count": 4
+  }
+}

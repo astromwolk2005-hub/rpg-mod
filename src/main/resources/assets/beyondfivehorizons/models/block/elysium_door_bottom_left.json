@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_left",
+  "textures": {
+    "bottom": "beyondfivehorizons:block/elysium_door_bottom",
+    "top": "beyondfivehorizons:block/elysium_door_top"
+  }
+}

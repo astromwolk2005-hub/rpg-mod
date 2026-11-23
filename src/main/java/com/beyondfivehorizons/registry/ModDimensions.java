@@ -5,10 +5,6 @@ import com.beyondfivehorizons.dimension.HorizonDimension;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.world.World;
 
-/**
- * Holds convenient references to all five dimension RegistryKeys.
- * Dimension definitions and dimension_types are loaded from data/beyondfivehorizons/.
- */
 public final class ModDimensions {
     public static final RegistryKey<World> ELYSIUM = HorizonDimension.ELYSIUM.getWorldKey();
     public static final RegistryKey<World> CHRONOS = HorizonDimension.CHRONOS.getWorldKey();

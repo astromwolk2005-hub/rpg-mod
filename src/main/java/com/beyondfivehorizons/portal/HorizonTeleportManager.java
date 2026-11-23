@@ -15,15 +15,36 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.World;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+
 /**
- * Handles safe cross-dimension teleportation between Overworld and the Five Horizons.
- * Guarantees that the player does not suffocate in solid blocks or fall into the void.
+ * Handles safe cross-dimension teleportation between Overworld and the Five Horizons,
+ * including cooldowns for physical portal blocks and return portal construction.
  */
 public final class HorizonTeleportManager {
+    private static final Map<UUID, Long> PORTAL_COOLDOWNS = new HashMap<>();
+    private static final long COOLDOWN_TICKS = 80L;
+
     private HorizonTeleportManager() {
     }
 
+    public static boolean canUsePortal(ServerPlayerEntity player) {
+        long now = player.getWorld().getTime();
+        Long until = PORTAL_COOLDOWNS.get(player.getUuid());
+        return until == null || now >= until;
+    }
+
+    public static void setPortalCooldown(ServerPlayerEntity player) {
+        PORTAL_COOLDOWNS.put(player.getUuid(), player.getWorld().getTime() + COOLDOWN_TICKS);
+    }
+
     public static boolean teleportToHorizon(ServerPlayerEntity player, HorizonDimension destination) {
+        return teleportToHorizon(player, destination, false);
+    }
+
+    public static boolean teleportToHorizon(ServerPlayerEntity player, HorizonDimension destination, boolean buildElysiumReturnPortal) {
         MinecraftServer server = player.getServer();
         if (server == null) {
             return false;
@@ -39,6 +60,11 @@ public final class HorizonTeleportManager {
         BlockPos targetPos = findOrCreateSafeLanding(targetWorld,
                 player.getBlockX(), player.getBlockZ(), destination);
 
+        if (buildElysiumReturnPortal && destination == HorizonDimension.ELYSIUM) {
+            ElysiumPortalHelper.ensureReturnPortal(targetWorld, targetPos);
+            targetPos = targetPos.south(2);
+        }
+
         player.teleport(
                 targetWorld,
                 targetPos.getX() + 0.5,
@@ -48,6 +74,7 @@ public final class HorizonTeleportManager {
                 player.getPitch()
         );
         player.fallDistance = 0.0f;
+        setPortalCooldown(player);
 
         targetWorld.playSound(null, targetPos, SoundEvents.BLOCK_PORTAL_TRAVEL,
                 SoundCategory.PLAYERS, 0.7f, 1.0f);
@@ -62,6 +89,10 @@ public final class HorizonTeleportManager {
     }
 
     public static boolean teleportToOverworld(ServerPlayerEntity player) {
+        return teleportToOverworld(player, false);
+    }
+
+    public static boolean teleportToOverworld(ServerPlayerEntity player, boolean preserveHorizontalCoords) {
         MinecraftServer server = player.getServer();
         if (server == null) {
             return false;
@@ -72,36 +103,52 @@ public final class HorizonTeleportManager {
             return false;
         }
 
-        BlockPos spawnPos = overworld.getSpawnPos();
-        overworld.getChunk(spawnPos);
-        int topY = overworld.getTopY(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, spawnPos.getX(), spawnPos.getZ());
-        int safeY = Math.max(topY, overworld.getBottomY() + 1);
+        BlockPos targetPos;
+        if (preserveHorizontalCoords) {
+            targetPos = findOrCreateOverworldLanding(overworld, player.getBlockX(), player.getBlockZ());
+            ElysiumPortalHelper.ensureReturnPortal(overworld, targetPos);
+            targetPos = targetPos.south(2);
+        } else {
+            BlockPos spawnPos = overworld.getSpawnPos();
+            overworld.getChunk(spawnPos);
+            int topY = overworld.getTopY(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, spawnPos.getX(), spawnPos.getZ());
+            int safeY = Math.max(topY, overworld.getBottomY() + 1);
+            targetPos = new BlockPos(spawnPos.getX(), safeY, spawnPos.getZ());
+        }
 
         player.teleport(
                 overworld,
-                spawnPos.getX() + 0.5,
-                safeY,
-                spawnPos.getZ() + 0.5,
+                targetPos.getX() + 0.5,
+                targetPos.getY(),
+                targetPos.getZ() + 0.5,
                 player.getYaw(),
                 player.getPitch()
         );
         player.fallDistance = 0.0f;
-        overworld.playSound(null, BlockPos.ofFloored(spawnPos.getX(), safeY, spawnPos.getZ()),
+        setPortalCooldown(player);
+        overworld.playSound(null, targetPos,
                 SoundEvents.BLOCK_PORTAL_TRAVEL, SoundCategory.PLAYERS, 0.7f, 1.1f);
         return true;
     }
 
-    /**
-     * Scans for a safe standing spot (solid block below, two air/non-solid blocks above).
-     * If none is found (e.g., open sky in Astralia or solid rock in Underroot), constructs
-     * a small 3x3 Obelisk Stone arrival pad and clears headroom.
-     */
+    private static BlockPos findOrCreateOverworldLanding(ServerWorld overworld, int x, int z) {
+        overworld.getChunk(x >> 4, z >> 4);
+        int surfaceY = overworld.getTopY(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, x, z);
+        if (surfaceY > overworld.getBottomY() + 2 && surfaceY < overworld.getTopY() - 5) {
+            BlockPos candidate = new BlockPos(x, surfaceY, z);
+            if (isSafeStandingSpot(overworld, candidate)) {
+                return candidate;
+            }
+        }
+        BlockPos fallback = new BlockPos(x, Math.max(surfaceY, 70), z);
+        buildArrivalPlatform(overworld, fallback);
+        return fallback;
+    }
+
     private static BlockPos findOrCreateSafeLanding(ServerWorld world, int x, int z, HorizonDimension dimension) {
-        // Force-load target chunk so heightmap and block queries are accurate
         world.getChunk(x >> 4, z >> 4);
 
         if (dimension.hasCeiling()) {
-            // Search inside cavern height range for an existing air pocket over solid ground
             int minY = world.getBottomY() + 8;
             int maxY = Math.min(world.getTopY() - 16, 110);
             for (int y = maxY; y >= minY; y--) {
@@ -110,21 +157,19 @@ public final class HorizonTeleportManager {
                     return feet;
                 }
             }
-            // Fallback: carve a safe pocket at mid-depth and place an arrival pad
             BlockPos fallback = new BlockPos(x, 64, z);
             buildArrivalPlatform(world, fallback);
             return fallback;
         }
 
         int surfaceY = world.getTopY(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, x, z);
-        if (surfaceY > world.getBottomY() + 2 && surfaceY < world.getTopY() - 2) {
+        if (surfaceY > world.getBottomY() + 2 && surfaceY < world.getTopY() - 4) {
             BlockPos candidate = new BlockPos(x, surfaceY, z);
             if (isSafeStandingSpot(world, candidate)) {
                 return candidate;
             }
         }
 
-        // Void or liquid fallback (especially relevant for Astralia's floating archipelago)
         int defaultY = dimension.isFloatingIslands() ? 100 : Math.max(surfaceY, 72);
         BlockPos fallback = new BlockPos(x, defaultY, z);
         buildArrivalPlatform(world, fallback);

@@ -1,0 +1,7 @@
+{
+  "type": "beyondfivehorizons:elysium_structure",
+  "variant": "hollow_titan_vault",
+  "biomes": "#beyondfivehorizons:elysium_forest_only",
+  "step": "surface_structures",
+  "spawn_overrides": {}
+}

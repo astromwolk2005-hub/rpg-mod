@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PP",
+    "PP",
+    "PP"
+  ],
+  "key": {
+    "P": {
+      "item": "beyondfivehorizons:elysium_planks"
+    }
+  },
+  "result": {
+    "id": "beyondfivehorizons:elysium_door",
+    "count": 3
+  }
+}

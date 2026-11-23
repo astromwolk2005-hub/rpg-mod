@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "beyondfivehorizons:temple_of_first_seed",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 40,
+    "separation": 18,
+    "salt": 1412004
+  }
+}

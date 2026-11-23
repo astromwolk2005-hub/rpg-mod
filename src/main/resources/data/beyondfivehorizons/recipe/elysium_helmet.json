@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "VLV",
+    "V V"
+  ],
+  "key": {
+    "V": {
+      "item": "beyondfivehorizons:verdant_crystal"
+    },
+    "L": {
+      "item": "beyondfivehorizons:living_essence"
+    }
+  },
+  "result": {
+    "id": "beyondfivehorizons:elysium_helmet",
+    "count": 1
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GGG",
+    "GLG",
+    "GGG"
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:glass"
+    },
+    "L": {
+      "item": "beyondfivehorizons:luminous_pollen"
+    }
+  },
+  "result": {
+    "id": "beyondfivehorizons:elysium_glass",
+    "count": 8
+  }
+}

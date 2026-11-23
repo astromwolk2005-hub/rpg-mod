@@ -1,0 +1,7 @@
+{
+  "type": "beyondfivehorizons:elysium_structure",
+  "variant": "elysium_shrine",
+  "biomes": "#beyondfivehorizons:elysium_healthy",
+  "step": "surface_structures",
+  "spawn_overrides": {}
+}

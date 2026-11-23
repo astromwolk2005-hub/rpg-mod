@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " V ",
+    " L ",
+    " S "
+  ],
+  "key": {
+    "V": {
+      "item": "beyondfivehorizons:verdant_crystal"
+    },
+    "L": {
+      "item": "beyondfivehorizons:living_essence"
+    },
+    "S": {
+      "item": "beyondfivehorizons:elysium_log"
+    }
+  },
+  "result": {
+    "id": "beyondfivehorizons:living_blade",
+    "count": 1
+  }
+}

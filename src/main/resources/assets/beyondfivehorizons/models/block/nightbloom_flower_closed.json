@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "beyondfivehorizons:block/nightbloom_flower_closed"
+  }
+}

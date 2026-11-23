@@ -1,0 +1,7 @@
+{
+  "type": "beyondfivehorizons:elysium_structure",
+  "variant": "blighted_hollow",
+  "biomes": "#beyondfivehorizons:elysium_blighted",
+  "step": "surface_structures",
+  "spawn_overrides": {}
+}

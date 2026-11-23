@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "active=false": {
+      "model": "beyondfivehorizons:block/reactive_blossom_inactive"
+    },
+    "active=true": {
+      "model": "beyondfivehorizons:block/reactive_blossom_active"
+    }
+  }
+}

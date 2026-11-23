@@ -4,8 +4,57 @@
     "type": "minecraft:noise",
     "settings": "minecraft:overworld",
     "biome_source": {
-      "type": "minecraft:fixed",
-      "biome": "beyondfivehorizons:elysium_glade"
+      "type": "minecraft:multi_noise",
+      "biomes": [
+        {
+          "biome": "beyondfivehorizons:luminous_forest",
+          "parameters": {
+            "temperature": 0.0,
+            "humidity": 0.1,
+            "continentalness": 0.0,
+            "erosion": 0.0,
+            "weirdness": 0.0,
+            "depth": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "beyondfivehorizons:garden_of_giants",
+          "parameters": {
+            "temperature": 0.6,
+            "humidity": 0.5,
+            "continentalness": 0.1,
+            "erosion": 0.1,
+            "weirdness": 0.1,
+            "depth": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "beyondfivehorizons:dead_thicket",
+          "parameters": {
+            "temperature": -0.6,
+            "humidity": -0.4,
+            "continentalness": 0.0,
+            "erosion": -0.1,
+            "weirdness": -0.4,
+            "depth": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "beyondfivehorizons:crystal_glades",
+          "parameters": {
+            "temperature": 0.1,
+            "humidity": -0.3,
+            "continentalness": 0.3,
+            "erosion": -0.3,
+            "weirdness": 0.65,
+            "depth": 0.0,
+            "offset": 0.0
+          }
+        }
+      ]
     }
   }
 }

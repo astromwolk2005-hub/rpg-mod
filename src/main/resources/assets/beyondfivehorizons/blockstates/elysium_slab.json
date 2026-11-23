@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "beyondfivehorizons:block/elysium_slab"
+    },
+    "type=double": {
+      "model": "beyondfivehorizons:block/elysium_planks"
+    },
+    "type=top": {
+      "model": "beyondfivehorizons:block/elysium_slab_top"
+    }
+  }
+}

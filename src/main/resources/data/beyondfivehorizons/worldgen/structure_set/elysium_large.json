@@ -1,0 +1,22 @@
+{
+  "structures": [
+    {
+      "structure": "beyondfivehorizons:ancient_garden",
+      "weight": 2
+    },
+    {
+      "structure": "beyondfivehorizons:root_temple",
+      "weight": 2
+    },
+    {
+      "structure": "beyondfivehorizons:hollow_titan_vault",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 32,
+    "separation": 14,
+    "salt": 1412003
+  }
+}

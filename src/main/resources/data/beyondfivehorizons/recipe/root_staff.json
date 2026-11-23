@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " LV",
+    " RL",
+    "R  "
+  ],
+  "key": {
+    "V": {
+      "item": "beyondfivehorizons:verdant_crystal"
+    },
+    "L": {
+      "item": "beyondfivehorizons:living_essence"
+    },
+    "R": {
+      "item": "beyondfivehorizons:elysium_root_block"
+    }
+  },
+  "result": {
+    "id": "beyondfivehorizons:root_staff",
+    "count": 1
+  }
+}

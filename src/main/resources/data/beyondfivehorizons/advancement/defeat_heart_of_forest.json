@@ -1,0 +1,29 @@
+{
+  "parent": "beyondfivehorizons:enter_elysium",
+  "display": {
+    "icon": {
+      "id": "beyondfivehorizons:heart_of_elysium"
+    },
+    "title": {
+      "translate": "advancement.beyondfivehorizons.defeat_heart.title"
+    },
+    "description": {
+      "translate": "advancement.beyondfivehorizons.defeat_heart.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "has_heart": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "beyondfivehorizons:heart_of_elysium"
+          }
+        ]
+      }
+    }
+  }
+}

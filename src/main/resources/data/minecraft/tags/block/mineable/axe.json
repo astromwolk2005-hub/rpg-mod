@@ -1,6 +1,18 @@
 {
   "replace": false,
   "values": [
-    "beyondfivehorizons:underroot_bark_block"
+    "beyondfivehorizons:underroot_bark_block",
+    "beyondfivehorizons:elysium_log",
+    "beyondfivehorizons:stripped_elysium_log",
+    "beyondfivehorizons:elysium_hollow_log",
+    "beyondfivehorizons:elysium_planks",
+    "beyondfivehorizons:elysium_stairs",
+    "beyondfivehorizons:elysium_slab",
+    "beyondfivehorizons:elysium_fence",
+    "beyondfivehorizons:elysium_fence_gate",
+    "beyondfivehorizons:elysium_door",
+    "beyondfivehorizons:elysium_trapdoor",
+    "beyondfivehorizons:elysium_root_block",
+    "beyondfivehorizons:blighted_log"
   ]
 }

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "beyondfivehorizons:block/elysium_hollow_log_top",
+    "side": "beyondfivehorizons:block/elysium_hollow_log"
+  }
+}

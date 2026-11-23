@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "open=false": {
+      "model": "beyondfivehorizons:block/nightbloom_flower_closed"
+    },
+    "open=true": {
+      "model": "beyondfivehorizons:block/nightbloom_flower_open"
+    }
+  }
+}

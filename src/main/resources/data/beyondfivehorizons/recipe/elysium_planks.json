@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "beyondfivehorizons:elysium_log"
+    }
+  ],
+  "result": {
+    "id": "beyondfivehorizons:elysium_planks",
+    "count": 4
+  }
+}

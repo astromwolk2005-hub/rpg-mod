@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "beyondfivehorizons:block/reactive_blossom_active"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "structures": [
+    {
+      "structure": "beyondfivehorizons:elysium_shrine",
+      "weight": 3
+    },
+    {
+      "structure": "beyondfivehorizons:glowing_gazebo",
+      "weight": 3
+    },
+    {
+      "structure": "beyondfivehorizons:root_arch",
+      "weight": 3
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 18,
+    "separation": 8,
+    "salt": 1412001
+  }
+}

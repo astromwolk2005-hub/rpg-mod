@@ -17,10 +17,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-/**
- * Registers operator commands for verifying all five dimensions during development:
- * /horizons tp <elysium|chronos|astralia|underroot|ashen_crown|overworld>
- */
 public final class ModCommands {
     private ModCommands() {
     }

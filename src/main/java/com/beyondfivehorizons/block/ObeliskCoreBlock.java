@@ -16,11 +16,6 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-/**
- * Foundation block for the Obelisk of the Five Horizons.
- * Using a dimension's signature resource on the Obelisk Core channels a portal jump
- * to that dimension; right-clicking empty-handed reports the Obelisk's status.
- */
 public class ObeliskCoreBlock extends Block {
     public ObeliskCoreBlock(Settings settings) {
         super(settings);
@@ -63,21 +58,11 @@ public class ObeliskCoreBlock extends Block {
     }
 
     private HorizonDimension resolveDimensionFromKeyItem(ItemStack stack) {
-        if (stack.isOf(ModItems.LIVING_ESSENCE)) {
-            return HorizonDimension.ELYSIUM;
-        }
-        if (stack.isOf(ModItems.CHRONODUST)) {
-            return HorizonDimension.CHRONOS;
-        }
-        if (stack.isOf(ModItems.SPATIAL_CRYSTAL)) {
-            return HorizonDimension.ASTRALIA;
-        }
-        if (stack.isOf(ModItems.PRIMAL_RESIN)) {
-            return HorizonDimension.UNDERROOT;
-        }
-        if (stack.isOf(ModItems.ASHEN_EMBER)) {
-            return HorizonDimension.ASHEN_CROWN;
-        }
+        if (stack.isOf(ModItems.LIVING_ESSENCE)) return HorizonDimension.ELYSIUM;
+        if (stack.isOf(ModItems.CHRONODUST)) return HorizonDimension.CHRONOS;
+        if (stack.isOf(ModItems.SPATIAL_CRYSTAL)) return HorizonDimension.ASTRALIA;
+        if (stack.isOf(ModItems.PRIMAL_RESIN)) return HorizonDimension.UNDERROOT;
+        if (stack.isOf(ModItems.ASHEN_EMBER)) return HorizonDimension.ASHEN_CROWN;
         return null;
     }
 }

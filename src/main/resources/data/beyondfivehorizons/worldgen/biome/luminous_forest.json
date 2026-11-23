@@ -1,0 +1,84 @@
+{
+  "has_precipitation": true,
+  "temperature": 0.85,
+  "downfall": 0.9,
+  "effects": {
+    "sky_color": 5235670,
+    "fog_color": 8188134,
+    "water_color": 1823940,
+    "water_fog_color": 749160,
+    "grass_color": 3072140,
+    "foliage_color": 2475923,
+    "particle": {
+      "options": {
+        "type": "beyondfivehorizons:living_spore"
+      },
+      "probability": 0.012
+    }
+  },
+  "spawners": {
+    "monster": [
+      {
+        "type": "beyondfivehorizons:rootwalker",
+        "weight": 35,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      {
+        "type": "beyondfivehorizons:petalmaw",
+        "weight": 15,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "beyondfivehorizons:arboreal_guardian",
+        "weight": 6,
+        "minCount": 1,
+        "maxCount": 1
+      }
+    ],
+    "creature": [],
+    "ambient": [
+      {
+        "type": "beyondfivehorizons:firefly",
+        "weight": 45,
+        "minCount": 2,
+        "maxCount": 5
+      }
+    ],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground"
+    ]
+  },
+  "features": [
+    [],
+    [
+      "beyondfivehorizons:glowing_lake"
+    ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "beyondfivehorizons:colossal_elysium_tree",
+      "beyondfivehorizons:root_bridge",
+      "beyondfivehorizons:patch_evolving_sprout",
+      "beyondfivehorizons:patch_nightbloom_flower",
+      "beyondfivehorizons:patch_reactive_blossom",
+      "minecraft:patch_tall_grass"
+    ],
+    []
+  ]
+}

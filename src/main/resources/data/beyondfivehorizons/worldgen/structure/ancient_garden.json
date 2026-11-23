@@ -1,0 +1,7 @@
+{
+  "type": "beyondfivehorizons:elysium_structure",
+  "variant": "ancient_garden",
+  "biomes": "#beyondfivehorizons:elysium_garden_only",
+  "step": "surface_structures",
+  "spawn_overrides": {}
+}

@@ -17,11 +17,6 @@ import net.minecraft.world.World;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Foundation item for the Explorer's Journal.
- * In Stage 1, prints discovered Horizons and boss progression from PersistentState.
- * Full graphical journal and bestiary UI will be wired in later stages.
- */
 public class ExplorerJournalItem extends Item {
     public ExplorerJournalItem(Settings settings) {
         super(settings);
@@ -34,6 +29,7 @@ public class ExplorerJournalItem extends Item {
             HorizonProgressionState state = HorizonProgressionState.get(serverPlayer.getServer());
             Set<HorizonDimension> discovered = state.getDiscovered(serverPlayer.getUuid());
             Set<HorizonDimension> bosses = state.getDefeatedBosses(serverPlayer.getUuid());
+            int purified = state.getPurifiedCores(serverPlayer.getUuid());
 
             serverPlayer.sendMessage(Text.translatable("message.beyondfivehorizons.journal_header")
                     .formatted(Formatting.GOLD, Formatting.BOLD), false);
@@ -57,6 +53,9 @@ public class ExplorerJournalItem extends Item {
                         .append(Text.literal("]"));
                 serverPlayer.sendMessage(line, false);
             }
+
+            serverPlayer.sendMessage(Text.translatable("message.beyondfivehorizons.journal_purified", purified)
+                    .formatted(Formatting.GREEN), false);
         }
         return TypedActionResult.success(stack, world.isClient);
     }

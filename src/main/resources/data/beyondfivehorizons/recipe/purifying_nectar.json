@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " P ",
+    "SLS",
+    " B "
+  ],
+  "key": {
+    "P": {
+      "item": "beyondfivehorizons:luminous_pollen"
+    },
+    "S": {
+      "item": "beyondfivehorizons:ancient_sap"
+    },
+    "L": {
+      "item": "beyondfivehorizons:living_essence"
+    },
+    "B": {
+      "item": "minecraft:glass_bottle"
+    }
+  },
+  "result": {
+    "id": "beyondfivehorizons:purifying_nectar",
+    "count": 2
+  }
+}

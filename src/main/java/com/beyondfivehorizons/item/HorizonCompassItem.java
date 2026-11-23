@@ -14,10 +14,6 @@ import net.minecraft.world.World;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Spatial orientation device for Beyond the Five Horizons.
- * Reports the player's current Horizon and spatial coordinates.
- */
 public class HorizonCompassItem extends Item {
     public HorizonCompassItem(Settings settings) {
         super(settings);

@@ -6,12 +6,11 @@ import net.minecraft.registry.Registry;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 
-/**
- * Sound event registry. Stage 1 defines core Obelisk & portal events.
- */
 public final class ModSounds {
     public static final SoundEvent OBELISK_ACTIVATE = registerSound("obelisk_activate");
     public static final SoundEvent HORIZON_TRAVEL = registerSound("horizon_travel");
+    public static final SoundEvent ELYSIUM_PORTAL_AMBIENT = registerSound("elysium_portal_ambient");
+    public static final SoundEvent HEART_BOSS_ROAR = registerSound("heart_boss_roar");
 
     private ModSounds() {
     }
